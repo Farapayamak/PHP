@@ -12,6 +12,7 @@
     // $result = $restClient->GetMessages(1, '5000xxx', 0, 100);
     // $result = $restClient->GetCredit();
     // $result = $restClient->GetUserNumbers();
+    // $result = $restClient->BaseServiceNumber('test sms', '09123456789', 2254);
     
     print_r($result);
     // echo $result['Value'];   // get specific member value
