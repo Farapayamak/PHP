@@ -3,9 +3,9 @@
     require('lib/rest.php');
 
     // SSL enabled version, use it after curl SSL configuration
-    // $restClient = new RestClient('username', 'password', true);
+    // $restClient = new Rest_Client('username', 'password', true);
 
-    $restClient = new RestClient('username', 'password');
+    $restClient = new Rest_Client('username', 'password');
 
     $result = $restClient->SendSMS('09123456789', '5000xxx', 'test sms', false);
     // $result = $restClient->GetDeliveries2(66666);
