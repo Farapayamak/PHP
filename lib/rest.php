@@ -1,6 +1,6 @@
 <?php
 
-class RestClient
+class Rest_Client
 {
     private static $ENDPOINT = 'https://rest.payamak-panel.com/api/SendSMS/';
     private $username;
