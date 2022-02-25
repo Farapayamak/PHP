@@ -1,5 +1,7 @@
 <?php
 
+namespace Farapayamak;
+
 class Rest_Client
 {
     private static $ENDPOINT = 'https://rest.payamak-panel.com/api/SendSMS/';
