@@ -1,6 +1,6 @@
 {
   "name": "farapayamak/php",
-  "description": "Farapayamak webservice wrappers for PHP language",
+  "description": "Farapayamak webservice wrapper for PHP language",
   "type": "library",
   "require": {
     "php": ">=5.3.0"
