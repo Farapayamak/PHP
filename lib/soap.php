@@ -1,5 +1,6 @@
 <?php
 
+namespace Farapayamak;
 
 class Soap_Client {
 
