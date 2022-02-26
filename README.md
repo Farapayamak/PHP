@@ -153,7 +153,6 @@ $soapClient->RemoveSchedule($scheduleId);
 ```
 
 ### Bulk Web Service
-List of available methods:
 
 ```php
 $soapClient->AddNumberBulk($from, $title, $messages, $receivers, $DateToSend);
