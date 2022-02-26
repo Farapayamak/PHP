@@ -17,7 +17,7 @@ This is the simple usage for both REST and SOAP APIs:
 ```php
 
 $restClient = new Rest_Client('username', 'password');
-$result = $restClient->SendSMS('09123456789', '5000xxx', 'test sms', false);
+print_r($restClient->SendSMS('09123456789', '5000xxx', 'test sms', false));
 
 $soapClient = new Soap_Client('username', 'password');
 print_r($soapClient->SendSimpleSMS2('09123456789', '5000xxx', 'test sms', false));
