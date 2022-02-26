@@ -83,6 +83,13 @@ class Soap_Client {
             'to' => $to, 'from' => $from, 'text' => $text, 'isflash' => $isflash, 'udh' => $udh, 'recId' => $recId]);
     }
 
+    public function SendSms2($to, $from, $text, $isflash, $udh, $recId, $status, $filterId) {
+        return (new \SoapClient(self::$SEND_ENDPOINT))
+            ->SendSms2(['username' => $this->username, 'password' => $this->password,
+            'to' => $to, 'from' => $from, 'text' => $text, 'isflash' => $isflash, 'udh' => $udh, 
+            'recId' => $recId, 'status' => $status, 'filterId' => $filterId]);
+    }
+
     public function SendMultipleSMS($to, $from, $text, $isflash, $udh, $recId) {
         return (new \SoapClient(self::$SEND_ENDPOINT))
             ->SendMultipleSMS(['username' => $this->username, 'password' => $this->password,
