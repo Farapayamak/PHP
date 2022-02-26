@@ -42,10 +42,9 @@ $restClient->BaseServiceNumber($text, $to, $bodyId);
 ```
 
 ## SOAP Methods
-We support a wide range of methods in SOAP scope separated as follow:
+We support a wide range of methods in SOAP web service. They're scope separated. Let's review all the SOAP web service methods.
 
 ### Send Web Service
-List of available methods:
 
 ```php
 $soapClient->GetCredit();
@@ -64,7 +63,6 @@ $soapClient->SendMultipleSMS2($to, $from, $text, $isflash, $udh, $recId);
 ```
 
 ### Receive Web Service
-List of available methods:
 
 ```php
 $soapClient->ChangeMessageIsRead($msgIds);
@@ -80,7 +78,6 @@ $soapClient->RemoveMessages($location, $msgIds);
 ```
 
 ### User Web Service
-List of available methods:
 
 ```php
 $soapClient->AddUser($productId, $descriptions, $mobileNumber, $emailAddress, $nationalCode, 
@@ -113,7 +110,6 @@ $soapClient->RemoveUser($targetUsername);
 ```
 
 ### Voice Web Service
-List of available methods:
 
 ```php
 $soapClient->SendBulkSpeechText($title, $body, $receivers, $DateToSend, $repeatCount);
@@ -122,7 +118,6 @@ $soapClient->UploadVoiceFile($title, $base64StringFile);
 ``
 
 ### Contacts Web Service
-List of available methods:
 
 ```php
 $soapClient->AddContact($groupIds, $firstname, $lastname, $nickname, $corporation, $mobilenumber,
@@ -146,7 +141,6 @@ $soapClient->RemoveGroup($groupId);
 ```
 
 ### Schedule Web Service
-List of available methods:
 
 ```php
 $soapClient->AddNewMultipleSchedule($to, $from, $text, $isflash, $scheduleDateTime, $period);
