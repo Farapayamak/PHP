@@ -37,9 +37,7 @@ class Rest_Client
             throw new \Exception(curl_error($curl));
         }
         
-        curl_close($curl);
-
-        
+        curl_close($curl);        
         return json_decode($response, true);
     }
 
