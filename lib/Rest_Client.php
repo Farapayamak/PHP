@@ -84,6 +84,36 @@ class Rest_Client
             'username' => $this->username, 'password' => $this->password);
         return $this->post(__FUNCTION__, $data);
     }
+
+    
+    
+    public function SendSmartSMS($to, $text, $from, $fromSupportOne, $fromSupportTwo) {
+        $data = array('to' => $to, 'text' => $text, 'from' => $from,
+            'fromSupportOne' => $fromSupportOne, 'fromSupportTwo' => $fromSupportTwo,
+            'username' => $this->username, 'password' => $this->password);
+        return $this->post('SmartSMS/Send', $data);
+    }
+
+    public function SendMultipleSmartSMS($to, $text, $from, $fromSupportOne, $fromSupportTwo) {
+        $data = array('to' => $to, 'text' => $text, 'from' => $from,
+            'fromSupportOne' => $fromSupportOne, 'fromSupportTwo' => $fromSupportTwo,
+            'username' => $this->username, 'password' => $this->password);
+        return $this->post('SmartSMS/SendMultiple', $data);
+    }
+
+    public function GetSmartSMSDeliveries2($id) {
+        $data = array('Id' => $id,
+            'username' => $this->username, 'password' => $this->password);
+        return $this->post('SmartSMS/GetDeliveries2', $data);
+    }
+
+    public function GetSmartSMSDeliveries($ids) {
+        $data = array('Ids' => $ids,
+            'username' => $this->username, 'password' => $this->password);
+        return $this->post('SmartSMS/GetDeliveries', $data);
+    }
+
+
 }
 
 ?>

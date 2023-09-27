@@ -39,6 +39,10 @@ $restClient->GetCredit();
 $restClient->GetBasePrice();
 $restClient->GetUserNumbers();
 $restClient->BaseServiceNumber($text, $to, $bodyId);
+$restClient->SendSmartSMS($to, $text, $from, $fromSupportOne, $fromSupportTwo);
+$restClient->SendMultipleSmartSMS($to, $text, $from, $fromSupportOne, $fromSupportTwo);
+$restClient->GetSmartSMSDeliveries2($id);
+$restClient->GetSmartSMSDeliveries($ids);
 ```
 
 ## SOAP Methods
