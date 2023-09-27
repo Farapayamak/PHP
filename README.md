@@ -162,3 +162,12 @@ $soapClient->GetBulkDeliveries($recIds);
 $soapClient->GetBulkDeliveries2($recId);
 $soapClient->GetBulkDetails($bulkdId);
 ```
+
+
+### Smart Web Service
+
+```php
+$soapClient->SendSmartSMS($to, $text, $from, $fromSupportOne, $fromSupportTwo);
+$soapClient->SendMultipleSmartSMS($to, $text, $from, $fromSupportOne, $fromSupportTwo);
+$soapClient->GetSmartSMSDeliveries($ids);
+```

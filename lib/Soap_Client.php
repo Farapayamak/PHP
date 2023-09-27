@@ -11,6 +11,7 @@ class Soap_Client {
     private static $CONTACT_ENDPOINT = 'http://api.payamak-panel.com/post/contacts.asmx?wsdl';
     private static $SCHEDULE_ENDPOINT = 'http://api.payamak-panel.com/post/schedule.asmx?wsdl';
     private static $BULK_ENDPOINT = 'http://api.payamak-panel.com/post/newbulks.asmx?wsdl';
+    private static $SMART_ENDPOINT = 'https://api.payamak-panel.com/post/Smartsms.asmx?wsdl';
 
     private $username;
     private $password;
@@ -539,6 +540,28 @@ class Soap_Client {
         return (new \SoapClient(self::$BULK_ENDPOINT))
             ->GetBulkDetails(['username' => $this->username, 'password' => $this->password,
             'bulkdId' => $bulkdId]);
+    }
+
+
+
+    // SMART webservice methods
+
+    public function SendSmartSMS($to, $text, $from, $fromSupportOne, $fromSupportTwo) {
+        return (new \SoapClient(self::$SMART_ENDPOINT))
+            ->SendSmartSMS(['username' => $this->username, 'password' => $this->password,
+            'to' => $to, 'text' => $text, 'from' => $from, 'fromSupportOne' => $fromSupportOne, 'fromSupportTwo' => $fromSupportTwo]);
+    }
+
+    public function SendMultipleSmartSMS($to, $text, $from, $fromSupportOne, $fromSupportTwo) {
+        return (new \SoapClient(self::$SMART_ENDPOINT))
+            ->SendMultipleSmartSMS(['username' => $this->username, 'password' => $this->password,
+            'to' => $to, 'text' => $text, 'from' => $from, 'fromSupportOne' => $fromSupportOne, 'fromSupportTwo' => $fromSupportTwo]);
+    }
+
+    public function GetSmartSMSDeliveries($ids) {
+        return (new \SoapClient(self::$SMART_ENDPOINT))
+            ->GetSmartSMSDeliveries(['username' => $this->username, 'password' => $this->password,
+            'ids' => $ids]);
     }
 
 }
