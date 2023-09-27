@@ -9,7 +9,7 @@ Here we've provided a complete 3rd-party library (SDK) for PHP developers that c
 You can run the following **composer** command to have it:
 
 ```
-composer require farapayamak/php:1.0.0
+composer require farapayamak/php:1.2.0
 ```
 
 ## Usage
