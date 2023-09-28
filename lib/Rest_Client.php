@@ -6,6 +6,7 @@ namespace Farapayamak;
 class Rest_Client
 {
     private static $ENDPOINT = 'https://rest.payamak-panel.com/api/SendSMS/';
+    private static $ENDPOINT_Smart = 'https://rest.payamak-panel.com/api/SmartSMS/';
     private $username;
     private $password;
     private $ignoreSSL;
@@ -20,14 +21,45 @@ class Rest_Client
     // data : array object
     private function post($route, $data)
     {
+        $endpoint = self::$ENDPOINT;
+
+        if(strpos($route, "SmartSMS") !== false) {
+            $endpoint = str_replace("SendSMS/", "", self::$ENDPOINT);
+        }
+
         $curl = curl_init();
     
         curl_setopt_array($curl, [
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_URL => self::$ENDPOINT . $route,
+            CURLOPT_URL => $endpoint . $route,
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => http_build_query($data),
             CURLOPT_SSL_VERIFYPEER => !$this->ignoreSSL
+        ]);
+
+        $response = curl_exec($curl);
+        
+        // to debug
+        if(curl_errno($curl)){
+            throw new \Exception(curl_error($curl));
+        }
+        
+        curl_close($curl);        
+        return json_decode($response, true);
+    }
+
+
+    private function postAsJson($route, $data)
+    {
+        $curl = curl_init();
+    
+        curl_setopt_array($curl, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_URL => self::$ENDPOINT_Smart . $route,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => json_encode($data),
+            CURLOPT_SSL_VERIFYPEER => !$this->ignoreSSL,
+            CURLOPT_HTTPHEADER => array('Content-Type: application/json')
         ]);
 
         $response = curl_exec($curl);
@@ -98,7 +130,7 @@ class Rest_Client
         $data = array('to' => $to, 'text' => $text, 'from' => $from,
             'fromSupportOne' => $fromSupportOne, 'fromSupportTwo' => $fromSupportTwo,
             'username' => $this->username, 'password' => $this->password);
-        return $this->post('SmartSMS/SendMultiple', $data);
+        return $this->postAsJson('SendMultiple', $data);
     }
 
     public function GetSmartSMSDeliveries2($id) {
@@ -110,7 +142,7 @@ class Rest_Client
     public function GetSmartSMSDeliveries($ids) {
         $data = array('Ids' => $ids,
             'username' => $this->username, 'password' => $this->password);
-        return $this->post('SmartSMS/GetDeliveries', $data);
+        return $this->postAsJson('GetDeliveries', $data);
     }
 
 
